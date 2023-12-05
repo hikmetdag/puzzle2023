@@ -1017,4 +1017,4 @@ numberForm.forEach(element => {
 const sum = numbersTwoDigit.reduce((accumulator, currentValue) => {
     return +accumulator + +currentValue;
 }, 0);
-
+console.log(sum);

@@ -1,4 +1,4 @@
-var str = `6798seven
+6798seven
 six8b32csscsdgjsevenfivedlhzhc
 fcvvkvjjnhfivesixfiveninesxlvnhfckc54
 feightwo4twofivefour
@@ -998,23 +998,3 @@ ggdone3nbmsthreefourninefiveoneightpr
 fourvzgnfnhkkp2
 j47three8sevenfivenfkd
 twotwo4seven1fqklblqbdxcmtch
-`;
-//Convert text to an array
-const splittedArray = str.split(/\r?\n/);
-//extract numbers from strings
-const numberForm = splittedArray.map(item => item.replace(/\D/g, ""));
-//Get a new array from with first and last integers
-const numbersTwoDigit = [];
-numberForm.forEach(element => {
-    if (element.length > 1) {
-        numbersTwoDigit.push(element.slice(0, 1).concat(element.slice(-1)));
-    } else {
-        numbersTwoDigit.push(element.slice(0, 1).concat(element.slice(0, 1)));
-    }
-
-});
-//Adding all the numbers
-const sum = numbersTwoDigit.reduce((accumulator, currentValue) => {
-    return +accumulator + +currentValue;
-}, 0);
-console.log(sum);

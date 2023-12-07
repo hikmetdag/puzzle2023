@@ -1,4 +1,4 @@
-const str = `Game 1: 12 blue, 15 red, 2 green; 17 red, 8 green, 5 blue; 8 red, 17 blue; 9 green, 1 blue, 4 red
+Game 1: 12 blue, 15 red, 2 green; 17 red, 8 green, 5 blue; 8 red, 17 blue; 9 green, 1 blue, 4 red
 Game 2: 6 red, 6 blue, 2 green; 1 blue, 1 red; 6 green, 1 red, 10 blue
 Game 3: 1 green, 2 blue; 7 blue, 4 green; 2 green, 1 blue; 10 blue, 4 green; 4 blue; 1 green, 7 blue, 1 red
 Game 4: 16 red, 12 blue, 10 green; 15 red, 5 green, 6 blue; 10 green, 15 red, 12 blue
@@ -98,18 +98,3 @@ Game 97: 13 green, 1 blue; 9 green, 1 red, 1 blue; 6 blue, 10 green; 1 red, 6 bl
 Game 98: 2 blue, 14 green, 2 red; 7 green, 1 blue; 1 blue, 1 red, 3 green; 2 red, 1 blue, 15 green; 1 blue, 2 red, 10 green
 Game 99: 3 green, 8 red, 7 blue; 6 red, 13 blue; 12 red, 4 green, 4 blue; 12 red, 8 green, 3 blue; 11 blue, 11 red, 4 green
 Game 100: 2 red, 13 blue, 1 green; 1 green, 12 blue; 1 red, 5 blue, 1 green; 3 blue, 3 red
-`;
-
-
-const splittedArray = str.split(/\r?\n/);
-const noWorkingIds = [];
-const newArray = splittedArray.map(element => element.split(' '));
-
-newArray.forEach
-    (element => element.forEach
-        ((item, k) => {
-            if (((item == 'blue' || item == 'blue,' || item == 'blue;') && element[k - 1] > 14) || ((item == 'red' || item == 'red,' || item == 'red;') && element[k - 1] > 12) || ((item == 'green' || item == 'green,' || item == 'green;') && element[k - 1] > 13)) { noWorkingIds.push(element[1].replace(/\D/g, "")); }
-        }));
-
-const sumOfNoWorking = noWorkingIds.filter((item, index) => noWorkingIds.indexOf(item) === index).reduce((a, b) => { return +a + +b; }, 0);
-const sumIds = newArray.map((item, index) => item[1] = index).reduce((a, b) => { return a + b; }, 0)-sumOfNoWorking

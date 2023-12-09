@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const lines = fs.readFileSync( '/Users/hackyourfuture/Desktop/Jspuzzle/puzzle2023/Day2/input.txt', 'utf-8').split('\n');
+const lines = fs.readFileSync( '/Users/hackyourfuture/Desktop/Jspuzzle/adventofcode2023/Day2/input.txt', 'utf-8').split('\n');
 
 const noWorkingIds = [];
 const newArray = lines.map(element => element.split(' '));
@@ -13,3 +13,4 @@ newArray.forEach
 
 const sumOfNoWorking = noWorkingIds.filter((item, index) => noWorkingIds.indexOf(item) === index).reduce((a, b) => { return +a + +b; }, 0);
 const sumIds = newArray.map((item, index) => item[1] = index).reduce((a, b) => { return a + b; }, 0)-sumOfNoWorking
+console.log(sumIds);
